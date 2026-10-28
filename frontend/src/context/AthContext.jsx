@@ -2,7 +2,7 @@ import React, { createContext } from 'react'
 
 export const authDataContext=createContext()
 function AthContext({children}) {
-  const serverUrl= "http://localhost:3000"
+  const serverUrl= "https://linkedin-backend-kcwx.onrender.com"
   let value ={
     serverUrl
   }
