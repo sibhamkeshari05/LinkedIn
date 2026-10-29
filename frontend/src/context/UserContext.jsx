@@ -19,9 +19,9 @@ function UserContext({children}) {
     const getCurrentUser=async()=>{
         try {
             let result = await axios.get(serverUrl + "/api/user/currentuser",
-            {withCredentials:true})
+                {withCredentials:true})
+
             setUserData(result.data)
-            console.log("API response:",result.data);
             
 
         } catch (error) {
@@ -37,7 +37,6 @@ function UserContext({children}) {
             setPostData(result.data)
             
         } catch (error) {
-            c
             
         }
     }

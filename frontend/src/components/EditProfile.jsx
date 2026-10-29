@@ -99,13 +99,13 @@ function EditProfile() {
     const coverImage=useRef()
 
     function handleProfileImage(e){
-        let file= e.target.files[0]
+        let file= e.target.files[1]
         setBackendProfileImage(file)
         setFrontendProfileImage(URL.createObjectURL(file))
     }
 
     function handleCoverImage(e){
-        let file= e.target.files[0]
+        let file= e.target.files[1]
         setBackendCoverImage(file)
         setFrontendCoverImage(URL.createObjectURL(file))
     }
@@ -118,6 +118,7 @@ function EditProfile() {
             formdata.append("lastName",lastName)
             formdata.append("userName",userName)
             formdata.append("headline",headline)
+            formdata.append("gender",gender)
             formdata.append("location",location)
             formdata.append("skills",JSON.stringify(skills))
             formdata.append("education",JSON.stringify(education))

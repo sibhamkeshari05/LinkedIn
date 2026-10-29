@@ -37,6 +37,7 @@ function Nav() {
   const handleSearch=async(query)=>{
     if (!query?.trim()) {
       setSearchData([])
+      return;
     }
       try {
         let result = await axios.get(`${serverUrl}/api/user/search?query=${searchInput}`,{withCredentials:true})
@@ -48,7 +49,7 @@ function Nav() {
   }
 
   useEffect(()=>{
-      handleSearch()
+      handleSearch(searchInput)
   },[searchInput])
  
   return (
@@ -70,7 +71,7 @@ function Nav() {
         {searchData.length>0 &&
           <div className='absolute top-[90px] min-h-[100px] lg:h-[400px] rounded-lg overflow-auto left-0 lg:left-[20px] shadow-lg w-[100%] lg:w-[500px] bg-white flex flex-col p-[20px] '>
             {searchData.map((sea) => (
-                <div className='flex gap-[15px] items-center border-b-2 rounded-lg border-b-gray-300 p-[10px] hover:bg-gray-200 cursor-pointer'
+                <div className='flex gap-[15px] items-center border-b-2 rounded-lg border-b-gray-300 p-[10px] hover:bg-gray-200 cursor-pointer' key={sea._id}
                  onClick={()=>handleGetProfile(sea.userName)}>
                     <div className='w-[50px] h-[50px] rounded-full overflow-hidden'>
                         <img src={sea.profileImg || dp} alt='' className='w-full h-full' />
