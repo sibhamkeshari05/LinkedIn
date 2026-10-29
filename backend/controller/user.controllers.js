@@ -3,6 +3,8 @@ import User from "../models/user.model.js"
 
 export const getCurrentUSer = async(req,res)=>{
     try {
+        console.log("Current User ID:", req.userId);
+        
         let id = req.userId
         const user= await User.findById(id).select("-password")
         if(!user){
@@ -18,7 +20,7 @@ export const getCurrentUSer = async(req,res)=>{
 
 export const updateProfile = async (req,res)=>{
     try {
-        let {firstname,lastName,username,headline,location,gender}=req.body
+        let {firstName,lastName,userName,headline,location,gender}=req.body
         let skills= req.body.skills?JSON.parse(req.body.skills):[]
         let education= req.body.education?JSON.parse(req.body.education):[]
         let experience= req.body.experience?JSON.parse(req.body.experience):[]
@@ -36,9 +38,9 @@ export const updateProfile = async (req,res)=>{
         
 
         let user = await User.findByIdAndUpdate(req.userId,{
-            firstname,
+            firstName,
             lastName,
-            username,
+            userName,
             headline,
             location,
             gender,
