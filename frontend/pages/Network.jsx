@@ -6,6 +6,9 @@ import { userDataContext } from '../src/context/UserContext'
 import dp from "../src/assets/dp.jpg"
 import {RxCrossCircled} from "react-icons/rx"
 import {IoIosCheckmarkCircleOutline} from "react-icons/io"
+import io from "socket.io-client"
+
+const socket =io("https://linkedin-backend-kcwx.onrender.com")
 
 function Network() {
 

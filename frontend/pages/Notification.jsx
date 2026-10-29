@@ -56,7 +56,7 @@ function Notification() {
     <div className='w-screen  h-[100vh] bg-[#f0efe7] pt-[100px] px-[20px] flex flex-col items-center gap-[40px]'>
         <Nav/>
         
-        <div className='w-[90%]  bg-[white] shadow-lg rounded-lg flex justify-between items-center px-[95px] py-[20px]  text-gray-600'>
+        <div className='w-[90%]  bg-[white] shadow-lg rounded-lg flex justify-between items-center px-[10px] py-[20px]  text-gray-600'>
 
             <div className='text-[22px]' >
                 Notifcations {notificationData.length}
@@ -68,14 +68,14 @@ function Notification() {
         </div>
 
         {notificationData.length>0 && 
-            <div className="w-[100%] overflow-auto  max-w-[900px] bg-white shadow-lg rounded-lg pt-[10px] px-[10px] gap-[10px]  flex flex-col">
+            <div className="w-[100%] overflow-auto max-w-[900px] bg-white shadow-lg rounded-lg pt-[10px] px-[10px] gap-[10px] flex flex-col">
                 {notificationData.map((noti, index) => (
 
                     <div className="w-full min-h-[80px] flex justify-between items-center px-[20px] border-b-2 border-b-gray-300 "key={index}>
 
                         <div className='w-full'>
 
-                            <div className="flex justify-start items-center gap-[15px]  pl-[7px] ">
+                            <div className="flex justify-start items-center gap-[15px]  ">
 
                                 <div className="w-[45px] h-[45px] rounded-full overflow-hidden  cursor-pointer" >
                                     <img src={noti.relatedUser?.profileImg || dp} alt="" className="w-full h-full" />
@@ -106,7 +106,7 @@ function Notification() {
 
                         <div className='flex items-center '
                          onClick={()=>handleDeleteNotification(noti._id)}>
-                            <RxCross1 className='w-[22px] h-[22px] text-gray-800  font-bold cursor-pointer' />
+                            <RxCross1 className='w-[30px] h-[30px] text-gray-800 font-bold cursor-pointer' />
                         </div>
 
                     </div>

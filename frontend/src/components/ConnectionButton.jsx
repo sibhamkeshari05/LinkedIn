@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { authDataContext } from '../context/AthContext'
 import axios from 'axios'
-import io from "socket.io-client"
 import { userDataContext } from '../context/UserContext'
 import { useNavigate } from 'react-router-dom'
+import io from "socket.io-client"
 
-const socket =io("http://localhost:3000")
+const socket =io("https://linkedin-backend-kcwx.onrender.com")
 
 function ConnectionButton({userId}) {
 
