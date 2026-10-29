@@ -56,7 +56,7 @@ function Notification() {
     <div className='w-screen  h-[100vh] bg-[#f0efe7] pt-[100px] px-[20px] flex flex-col items-center gap-[40px]'>
         <Nav/>
         
-        <div className='w-[90%]  bg-[white] shadow-lg rounded-lg flex justify-between items-center px-[95px] py-[20px]  text-gray-600'>
+        <div className='w-[90%]  bg-[white] shadow-lg rounded-lg flex justify-between items-center px-[50px] py-[20px]  text-gray-600'>
 
             <div className='text-[22px]' >
                 Notifcations {notificationData.length}
