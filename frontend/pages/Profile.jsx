@@ -68,7 +68,7 @@ function Profile() {
                 </div>
 
                 {profileData._id==userData._id &&
-                 <button className='min-w-[140px] ml-[60px] h-[35px] my-[10px] rounded-full border-2 border-[#2dc0ff] text-[#2dc0ff] flex items-center justify-center gap-[10px]'
+                 <button className='min-w-[140px] pl-[30px] h-[35px] my-[10px] rounded-full border-2 border-[#2dc0ff] text-[#2dc0ff] flex items-center justify-center gap-[10px]'
                     onClick={()=>{setEdit(true)}}>
                     Edit Profile <HiPencil/>
                 </button>
