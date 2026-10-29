@@ -49,7 +49,7 @@ function Profile() {
                     <FiPlus className='text-white'onClick={()=>{setEdit(true)}}/>
                 </div>
                 
-                <div className='mt-[45px] pl-[30px] gap-[50px] text-[19px] font-semibold text-gray-700 '>
+                <div className='mt-[45px] pl-[40px] gap-[50px] text-[19px] font-semibold text-gray-700 '>
 
                     <div className='font-bold text-[25px]'>{`${profileData.firstName} ${profileData.lastName}`}</div>
                 
@@ -68,7 +68,7 @@ function Profile() {
                 </div>
 
                 {profileData._id==userData._id &&
-                 <button className='min-w-[140px] ml-[30px] h-[35px] my-[10px] rounded-full border-2 border-[#2dc0ff] text-[#2dc0ff] flex items-center justify-center gap-[10px]'
+                 <button className='min-w-[140px] ml-[60px] h-[35px] my-[10px] rounded-full border-2 border-[#2dc0ff] text-[#2dc0ff] flex items-center justify-center gap-[10px]'
                     onClick={()=>{setEdit(true)}}>
                     Edit Profile <HiPencil/>
                 </button>
