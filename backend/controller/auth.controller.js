@@ -66,7 +66,7 @@ export const logIn = async (req,res)=>{
             httpOnly:true,
             maxAge:7*24*60*60*1000,
             sameSite:"none",
-            secure:true
+            secure:true,
             path:"/"
         })
 
