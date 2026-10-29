@@ -18,7 +18,7 @@ export const getCurrentUSer = async(req,res)=>{
 
 export const updateProfile = async (req,res)=>{
     try {
-        let {firstName,lastName,username,headline,location,gender}=req.body
+        let {firstName,lastName,userName,headline,location,gender}=req.body
         let skills= req.body.skills?JSON.parse(req.body.skills):[]
         let education= req.body.education?JSON.parse(req.body.education):[]
         let experience= req.body.experience?JSON.parse(req.body.experience):[]
@@ -38,7 +38,7 @@ export const updateProfile = async (req,res)=>{
         let user = await User.findByIdAndUpdate(req.userId,{
             firstName,
             lastName,
-            username,
+            userName,
             headline,
             location,
             gender,
