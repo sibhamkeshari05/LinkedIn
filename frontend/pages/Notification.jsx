@@ -106,7 +106,7 @@ function Notification() {
 
                         <div className='flex items-center '
                          onClick={()=>handleDeleteNotification(noti._id)}>
-                            <RxCross1 className='w-[22px] h-[22px] text-gray-800 font-bold cursor-pointer' />
+                            <RxCross1 className='w-[30px] h-[30px] text-gray-800 font-bold cursor-pointer' />
                         </div>
 
                     </div>
