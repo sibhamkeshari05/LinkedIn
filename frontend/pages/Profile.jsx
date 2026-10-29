@@ -49,7 +49,7 @@ function Profile() {
                     <FiPlus className='text-white'onClick={()=>{setEdit(true)}}/>
                 </div>
                 
-                <div className='mt-[45px] pl-[50px] gap-[50px] text-[19px] font-semibold text-gray-700 '>
+                <div className='mt-[45px] pl-[20px] gap-[50px] text-[19px] font-semibold text-gray-700 '>
 
                     <div className='font-bold text-[25px]'>{`${profileData.firstName} ${profileData.lastName}`}</div>
                 
