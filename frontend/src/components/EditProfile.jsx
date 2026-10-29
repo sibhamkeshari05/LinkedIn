@@ -118,6 +118,7 @@ function EditProfile() {
             formdata.append("lastName",lastName)
             formdata.append("userName",userName)
             formdata.append("headline",headline)
+            formdata.append("gender",gender)
             formdata.append("location",location)
             formdata.append("skills",JSON.stringify(skills))
             formdata.append("education",JSON.stringify(education))
