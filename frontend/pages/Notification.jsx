@@ -68,7 +68,7 @@ function Notification() {
         </div>
 
         {notificationData.length>0 && 
-            <div className="w-[100%] overflow-auto  max-w-[900px] bg-white shadow-lg rounded-lg pt-[10px] px-[10px] gap-[10px] flex flex-col">
+            <div className="w-[100%] overflow-auto  max-w-[900px] bg-white shadow-lg rounded-lg pt-[10px]  gap-[10px] flex flex-col">
                 {notificationData.map((noti, index) => (
 
                     <div className="w-full min-h-[80px] flex justify-between items-center px-[20px] border-b-2 border-b-gray-300 "key={index}>
