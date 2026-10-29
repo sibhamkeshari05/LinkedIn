@@ -37,7 +37,6 @@ function UserContext({children}) {
             setPostData(result.data)
             
         } catch (error) {
-            c
             
         }
     }
