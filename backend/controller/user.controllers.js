@@ -18,7 +18,7 @@ export const getCurrentUSer = async(req,res)=>{
 
 export const updateProfile = async (req,res)=>{
     try {
-        let {firstname,lastName,username,headline,location,gender}=req.body
+        let {firstName,lastName,username,headline,location,gender}=req.body
         let skills= req.body.skills?JSON.parse(req.body.skills):[]
         let education= req.body.education?JSON.parse(req.body.education):[]
         let experience= req.body.experience?JSON.parse(req.body.experience):[]
