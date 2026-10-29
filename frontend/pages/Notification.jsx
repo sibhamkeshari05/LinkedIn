@@ -75,7 +75,7 @@ function Notification() {
 
                         <div className='w-full'>
 
-                            <div className="flex justify-start items-center gap-[15px]  pl-[7px] ">
+                            <div className="flex justify-start items-center gap-[15px]  pl-[2px] ">
 
                                 <div className="w-[45px] h-[45px] rounded-full overflow-hidden  cursor-pointer" >
                                     <img src={noti.relatedUser?.profileImg || dp} alt="" className="w-full h-full" />
