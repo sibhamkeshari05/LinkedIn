@@ -5,7 +5,9 @@ import { userDataContext } from '../context/UserContext'
 import { useNavigate } from 'react-router-dom'
 import io from "socket.io-client"
 
-const socket =io("https://linkedin-backend-kcwx.onrender.com")
+const socket = io(import.meta.env.VITE_SERVER_URL, {
+    withCredentials: true
+});
 
 function ConnectionButton({userId}) {
 

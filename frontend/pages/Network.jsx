@@ -8,7 +8,9 @@ import {RxCrossCircled} from "react-icons/rx"
 import {IoIosCheckmarkCircleOutline} from "react-icons/io"
 import io from "socket.io-client"
 
-const socket =io("https://linkedin-backend-kcwx.onrender.com")
+const socket = io(import.meta.env.VITE_SERVER_URL, {
+    withCredentials: true
+});
 
 function Network() {
 

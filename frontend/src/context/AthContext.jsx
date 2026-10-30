@@ -2,7 +2,9 @@ import React, { createContext } from 'react'
 
 export const authDataContext=createContext()
 function AthContext({children}) {
-  const serverUrl= "https://linkedin-backend-kcwx.onrender.com"
+
+  const serverUrl = import.meta.env.VITE_SERVER_URL;
+  
   let value ={
     serverUrl
   }

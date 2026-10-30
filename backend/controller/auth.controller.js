@@ -62,12 +62,14 @@ export const logIn = async (req,res)=>{
         }
         
         let token = await genToken(notUser._id)
-        res.cookie("token",token,{
-            httpOnly:true,
-            maxAge:7*24*60*60*1000,
-            sameSite:"none",
-            secure:true,
-            path:"/"
+
+        const isProduction = process.env.NODE_ENVIRONMENT === "PRODUCTION";
+        res.cookie("token", token, {
+            httpOnly: true,
+            maxAge: 7 * 24 * 60 * 60 * 1000,
+            sameSite: isProduction ? "none" : "lax",
+            secure: isProduction,
+            path: "/"
         })
 
         console.log("User login...");
@@ -82,7 +84,16 @@ export const logIn = async (req,res)=>{
 
 export const logOut = async (req,res)=>{
     try {
-        res.clearCookie("token")
+
+        const isProduction = process.env.NODE_ENVIRONMENT === "PRODUCTION";
+
+        res.clearCookie("token", {
+            httpOnly: true,
+            sameSite: isProduction ? "none" : "lax",
+            secure: isProduction,
+            path: "/"
+        })
+
         return res.status(200).json({message:"Logout Successful..."})
     } catch (error) {
         console.log(error);

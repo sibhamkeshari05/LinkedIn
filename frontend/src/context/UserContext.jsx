@@ -5,7 +5,9 @@ import { useNavigate } from 'react-router-dom'
 export const userDataContext=createContext()
 import io, { Socket } from "socket.io-client"
 
-export let socket = io("https://linkedin-backend-kcwx.onrender.com")
+export let socket = io(import.meta.env.VITE_SERVER_URL, {
+    withCredentials: true
+});
 
 function UserContext({children}) {
 
