@@ -155,7 +155,7 @@ function Home() {
       
 
       <div className='w-full lg:w-[50%] min-h-[200px] bg-[#f0efe7] flex flex-col gap-[20px]'>
-        <div className='w-full h-[120px] bg-white shadow-lg rounded-lg flex items-center justify-center gap-[10px]'>
+        <div className='w-full h-[120px] bg-white shadow-lg rounded-lg flex items-center justify-center px-[10px] gap-[10px]'>
           <div className='w-[70px] h-[70px] rounded-full overflow-hidden flex items-center justify-center cursor-pointer'>
             <img src={userData.profileImg || dp} alt="" className='h-full' />
           </div>
