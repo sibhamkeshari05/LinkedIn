@@ -24,11 +24,15 @@ function UserContext({children}) {
                 {withCredentials:true})
 
             setUserData(result.data)
-            
+            return true;
 
         } catch (error) {
-            console.log(error);
-            setUserData(null)
+            if (error.response?.status !== 401) {
+                console.log(error);
+            }
+
+            setUserData(null);
+            return false;
         }
     }
 
@@ -53,10 +57,18 @@ function UserContext({children}) {
         }
     }
 
-    useEffect(()=>{
-        getCurrentUser()
-        getPost()
-    },[])
+    useEffect(() => {
+        
+        const fetchData = async () => {
+            const isAuthenticated = await getCurrentUser();
+
+            if (isAuthenticated) {
+                await getPost();
+            }
+        };
+
+        fetchData();
+    }, []);
 
     const value ={
         userData,setUserData,

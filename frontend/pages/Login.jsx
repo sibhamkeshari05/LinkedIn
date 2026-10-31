@@ -8,7 +8,7 @@ import { userDataContext } from '../src/context/UserContext'
 function Login() {
     let [show,setShow]=useState(false)
     let {serverUrl}=useContext(authDataContext)
-    let {userData,setUserData}=useContext(userDataContext)
+    let {userData,setUserData,getPost}=useContext(userDataContext)
     let navigate = useNavigate()
 
     let [email,setEmail]=useState("")
@@ -24,12 +24,17 @@ function Login() {
                 email,
                 password
             },{withCredentials:true})
+
             setUserData(result.data)
+
+            await getPost()
+            
             navigate("/")
             setErr("")
             setLoading(false)
             setEmail("")
             setPassword("")
+
         } catch (error) {
             console.log(error);
             setErr(error.response.data.message)
