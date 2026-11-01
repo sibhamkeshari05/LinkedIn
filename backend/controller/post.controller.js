@@ -86,12 +86,15 @@ export const comment = async (req,res)=>{
         },{new:true})
         .populate("comment.user","firstName lastName profileImg headline")
 
-        let notification=await Notification.create({
+        if(post.auther!=userId){
+            let notification=await Notification.create({
             receiver:post.auther,
             type:"comment",
             relatedUser:userId,
             relatedPost:postId
         })
+        }
+        
 
         io.emit("commentAdded",{postId,comm:post.comment})
         
