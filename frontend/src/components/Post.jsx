@@ -67,6 +67,27 @@ function Post({id,auther,like,comment,description,image,createdAt}) {
         }
     },[id])
 
+//     useEffect(() => {
+
+//     const handleCommentAdded = ({ postId, comm }) => {
+
+//         console.log("Comment Event Received");
+//         console.log("Received Post ID:", postId);
+//         console.log("Current Post ID:", id);
+
+//         if (String(postId) === String(id)) {
+//             setComments(comm);
+//         }
+//     };
+
+//     socket.on("commentAdded", handleCommentAdded);
+
+//     return () => {
+//         socket.off("commentAdded", handleCommentAdded);
+//     };
+
+// }, [id]);
+
     useEffect(()=>{
         setLikes(like)
         setComments(comment)
@@ -110,7 +131,7 @@ function Post({id,auther,like,comment,description,image,createdAt}) {
 
                 <div className="flex items-center justify-center gap-[5px] text-[18px] cursor-pointer"
                  onClick={()=>setShowComment(prev=>!prev)}>
-                    <span>{comment?.length || 0}</span>
+                    <span>{comments?.length || 0}</span>
                     <span>comments</span>
                 </div>
             </div>
@@ -134,7 +155,7 @@ function Post({id,auther,like,comment,description,image,createdAt}) {
                 <div className='flex justify-center items-center gap-[5px] cursor-pointer'
                  onClick={()=>setShowComment(prev=>!prev)}>
                     <FaRegCommentDots className='w-[24px] h-[24px]'/>
-                    <span >comment</span>
+                    <span > comment</span>
                 </div>
             </div>
 
@@ -150,7 +171,7 @@ function Post({id,auther,like,comment,description,image,createdAt}) {
                     />
 
                     <button>
-                        <LuSendHorizontal className="text-[#07a4ff] w-[22px] h-[22px]" onClick={handleComment}/>
+                        <LuSendHorizontal className="text-[#07a4ff] w-[22px] h-[22px]" />
                     </button>
                 </form>
                 <div className='flex flex-col gap-[20px]'>
