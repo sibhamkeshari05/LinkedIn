@@ -175,7 +175,7 @@ function Post({id,auther,like,comment,description,image,createdAt}) {
                                 <div className='pl-[50px]'>{com.content}</div>
                             </div>
 
-                            <button className='min-h-[30px] h-[25px]  w-[60px] min-w-[60px] text-[13px] relative top-[10px] bottom-0 rounded-lg border-2 border-gray-500 hover:bg-gray-200 '>delete</button>
+                            {/* <button className='min-h-[30px] h-[25px]  w-[60px] min-w-[60px] text-[13px] relative top-[10px] bottom-0 rounded-lg border-2 border-gray-500 hover:bg-gray-200 '>delete</button> */}
                         </div>
                     ))}
                 </div>
