@@ -147,8 +147,8 @@ function EditProfile() {
     return (
         <div className='w-full h-[100vh] fixed top-0 z-[100] flex justify-center items-center'>
 
-            <input type="file" accept='image/*' hidden ref={profileImage} onChange={handleProfileImage}/>
-            <input type="file" accept='image/*' hidden ref={coverImage} onChange={handleCoverImage}/>
+            <input type="file" accept='image/*' hidden ref={profileImg} onChange={handleProfileImg}/>
+            <input type="file" accept='image/*' hidden ref={coverImg} onChange={handleCoverImg}/>
 
             <div className='w-full h-full top-0 left-0 bg-black opacity-[0.5] absolute'></div>
             <div className='w-[90%] max-w-[500px] h-[600px] bg-white relative z-[200] shadow-lg rounded-lg p-[20px] overflow-auto'>
