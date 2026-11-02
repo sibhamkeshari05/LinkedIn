@@ -99,13 +99,13 @@ function EditProfile() {
     const coverImage=useRef()
 
     function handleProfileImage(e){
-        let file= e.target.files[1]
+        let file= e.target.files[0]
         setBackendProfileImage(file)
         setFrontendProfileImage(URL.createObjectURL(file))
     }
 
     function handleCoverImage(e){
-        let file= e.target.files[1]
+        let file= e.target.files[0]
         setBackendCoverImage(file)
         setFrontendCoverImage(URL.createObjectURL(file))
     }
