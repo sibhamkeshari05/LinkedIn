@@ -90,24 +90,24 @@ function EditProfile() {
 
     }
 
-    let [frontendProfileImage,setFrontendProfileImage]=useState(userData.profileImage || dp)
-    let [backendProfileImage,setBackendProfileImage]=useState(null)
-    let [backendCoverImage,setBackendCoverImage]=useState(null)
-    let [frontendCoverImage,setFrontendCoverImage]=useState(userData.coverImage || null)
+    let [frontendProfileImg,setFrontendProfileImg]=useState(userData.profileImg || dp)
+    let [backendProfileImg,setBackendProfileImg]=useState(null)
+    let [backendCoverImg,setBackendCoverImg]=useState(null)
+    let [frontendCoverImg,setFrontendCoverImg]=useState(userData.coverImg || null)
 
-    const profileImage=useRef()
-    const coverImage=useRef()
+    const profileImg=useRef()
+    const coverImg=useRef()
 
-    function handleProfileImage(e){
+    function handleProfileImg(e){
         let file= e.target.files[0]
-        setBackendProfileImage(file)
-        setFrontendProfileImage(URL.createObjectURL(file))
+        setBackendProfileImg(file)
+        setFrontendProfileImg(URL.createObjectURL(file))
     }
 
-    function handleCoverImage(e){
+    function handleCoverImg(e){
         let file= e.target.files[0]
-        setBackendCoverImage(file)
-        setFrontendCoverImage(URL.createObjectURL(file))
+        setBackendCoverImg(file)
+        setFrontendCoverImg(URL.createObjectURL(file))
     }
 
      const handleSaveProfile= async()=>{
@@ -124,11 +124,11 @@ function EditProfile() {
             formdata.append("education",JSON.stringify(education))
             formdata.append("experience",JSON.stringify(experience))
 
-            if(backendProfileImage){
-                formdata.append("profileImg",backendProfileImage)
+            if(backendProfileImg){
+                formdata.append("profileImg",backendProfileImg)
             }
-             if(backendCoverImage){
-                formdata.append("coverImg",backendCoverImage)
+             if(backendCoverImg){
+                formdata.append("coverImg",backendCoverImg)
             }
 
             let result = await axios.put(serverUrl + "/api/user/updateprofile",formdata,{withCredentials:true})
@@ -158,13 +158,13 @@ function EditProfile() {
                 </div>
 
                 <div className='w-full h-[150px] bg-gray-500 rounded-lg mt-[40px] overflow-hidden '
-                  onClick={()=>coverImage.current.click()}>
-                    <img src={frontendCoverImage} alt="" className='w-full' />
+                  onClick={()=>coverImg.current.click()}>
+                    <img src={frontendCoverImg} alt="" className='w-full' />
                     <FiCamera className=' absolute right-[40px] top-[75px] w-[25px] h-[25px] text-white cursor-pointer'/>
                 </div>
                 <div className='w-[70px] h-[70px] rounded-full overflow-hidden absolute top-[165px] ml-[30px]'
-                  onClick={()=>profileImage.current.click()}>
-                    <img src={frontendProfileImage} alt="" className='h-full' />
+                  onClick={()=>profileImg.current.click()}>
+                    <img src={frontendProfileImg} alt="" className='h-full' />
                 </div>
                 <div className='w-[20px] h-[20px] bg-[#17c1ff] absolute top-[210px] left-[100px] rounded-full flex justify-center items-center cursor-pointer'>
                     <FiPlus className='text-white' />
