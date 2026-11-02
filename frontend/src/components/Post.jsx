@@ -67,27 +67,6 @@ function Post({id,auther,like,comment,description,image,createdAt}) {
         }
     },[id])
 
-//     useEffect(() => {
-
-//     const handleCommentAdded = ({ postId, comm }) => {
-
-//         console.log("Comment Event Received");
-//         console.log("Received Post ID:", postId);
-//         console.log("Current Post ID:", id);
-
-//         if (String(postId) === String(id)) {
-//             setComments(comm);
-//         }
-//     };
-
-//     socket.on("commentAdded", handleCommentAdded);
-
-//     return () => {
-//         socket.off("commentAdded", handleCommentAdded);
-//     };
-
-// }, [id]);
-
     useEffect(()=>{
         setLikes(like)
         setComments(comment)
@@ -176,23 +155,27 @@ function Post({id,auther,like,comment,description,image,createdAt}) {
                 </form>
                 <div className='flex flex-col gap-[20px]'>
                     {comments.map((com) => (
-                        <div className='flex flex-col gap-[20px] border-b-2 p-[20px] border-b-gray-300'>
-                            <div className="w-full flex justify-start items-center gap-[10px]">
-                                <div className="w-[40px] h-[40px] rounded-full overflow-hidden flex items-center justify-center cursor-pointer">
-                                    <img
-                                        src={com.user.profileImg || dp}
-                                        alt=""
-                                        className="h-full"
-                                    />
-                                </div>
-                                <div>
-                                    <div className="text-[16px] font-semibold">
-                                        {`${com.user.firstName} ${com.user.lastName}`}
+                        <div className='flex flex-row justify-between  border-b-2  border-b-gray-300'>
+                            <div className='flex flex-col gap-[20px] p-[10px]'>
+                                <div className="w-full flex justify-start items-center gap-[10px]">
+                                    <div className="w-[40px] h-[40px] rounded-full overflow-hidden flex items-center justify-center cursor-pointer">
+                                        <img
+                                            src={com.user.profileImg || dp}
+                                            alt=""
+                                            className="h-full"
+                                        />
                                     </div>
-                                    <div>{moment(com.createdAt).fromNow()}</div>
+                                    <div>
+                                        <div className="text-[16px] font-semibold">
+                                            {`${com.user.firstName} ${com.user.lastName}`}
+                                        </div>
+                                        <div>{moment(com.createdAt).fromNow()}</div>
+                                    </div>
                                 </div>
+                                <div className='pl-[50px]'>{com.content}</div>
                             </div>
-                            <div className='pl-[50px]'>{com.content}</div>
+
+                            <button className='min-h-[30px] h-[25px]  w-[60px] min-w-[60px] text-[13px] relative top-[10px] bottom-0 rounded-lg border-2 border-gray-500 hover:bg-gray-200 '>delete</button>
                         </div>
                     ))}
                 </div>
