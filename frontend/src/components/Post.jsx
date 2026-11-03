@@ -73,8 +73,8 @@ function Post({id,auther,like,comment,description,image,createdAt}) {
     },[like,comment])
 
   return (
-    <div className='w-full min-h-[2 00px] flex flex-col gap-[10px] bg-white rounded-lg shadow-lg p-[20px]'>
-        <div className='flex justify-between items-center'>
+    <div className='w-full min-h-[200px] flex flex-col gap-[10px] bg-white rounded-lg shadow-lg pt-[15px] px-[10px]'>
+        <div className='flex justify-between '>
             <div className='flex justify-center items-start gap-[10px]'
              onClick={()=>handleGetProfile(auther.userName)}>
                 <div className='w-[70px] h-[70px] rounded-full overflow-hidden flex items-center justify-center cursor-pointer'>
@@ -86,10 +86,10 @@ function Post({id,auther,like,comment,description,image,createdAt}) {
                     <div className='text-[16px]'>{moment(createdAt).fromNow()}</div>
                 </div>
             </div>
-            <div>
+            <div >
                 {userData._id!=auther._id && 
-                 <ConnectionButton userId={auther._id}/>
-                 }
+                <ConnectionButton userId={auther._id} />
+                }
             </div>
         </div>
         <div className={`w-full ${!more?"max-h-[100px] overflow-hidden":""} pl-[40px]`}>{description}</div>
@@ -115,27 +115,34 @@ function Post({id,auther,like,comment,description,image,createdAt}) {
                 </div>
             </div>
 
-            <div className='flex justify-start items-center w-full p-[20px] gap-[20px]'>
-                {!likes.includes(userData._id) && 
-                 <div className='flex justify-center items-center gap-[5px] cursor-pointer'>
-                    <BiLike className='w-[24px] h-[24px]'
-                    onClick={handleLike}/>
-                    <span onClick={handleLike}>Like</span>
-                 </div>
-                }
-                {likes.includes(userData._id) && 
-                 <div className='flex justify-center items-center gap-[5px]'>
-                    <BiSolidLike className='w-[24px] h-[24px] text-[#1ebbff]'
-                    onClick={handleLike}/>
-                    <span className="cursor-pointer text-[#1ebbff]" onClick={handleLike}>Liked</span>
-                 </div>
-                }
-                
-                <div className='flex justify-center items-center gap-[5px] cursor-pointer'
-                 onClick={()=>setShowComment(prev=>!prev)}>
-                    <FaRegCommentDots className='w-[24px] h-[24px]'/>
-                    <span > comment</span>
+            <div className='flex justify-between items-center w-full p-[10px] gap-[20px]'>
+                <div className='flex justify-start items-center w-full  gap-[20px]'>
+                    {!likes.includes(userData._id) && 
+                        <div className='flex justify-center items-center gap-[5px] cursor-pointer'>
+                            <BiLike className='w-[24px] h-[24px]'
+                            onClick={handleLike}/>
+                            <span onClick={handleLike}>Like</span>
+                        </div>
+                    }
+
+                    {likes.includes(userData._id) && 
+                        <div className='flex justify-center items-center gap-[5px]'>
+                            <BiSolidLike className='w-[24px] h-[24px] text-[#1ebbff]'
+                            onClick={handleLike}/>
+                            <span className="cursor-pointer text-[#1ebbff]" onClick={handleLike}>Liked</span>
+                        </div>
+                    }
+                    
+                    <div className='flex justify-center items-center gap-[5px] cursor-pointer'
+                        onClick={()=>setShowComment(prev=>!prev)}>
+                        <FaRegCommentDots className='w-[24px] h-[24px]'/>
+                        <span > Comment</span>
+                    </div>
                 </div>
+                
+                {/* <div>
+                    <button className='flex justify-center items-center  rounded-full text-[12px] min-w-[80px] border-2 border-gray-500 hover:bg-gray-200 cursor-pointer' >Delete post</button>
+                </div> */}
             </div>
 
             {showComment && 
@@ -175,7 +182,6 @@ function Post({id,auther,like,comment,description,image,createdAt}) {
                                 <div className='pl-[50px]'>{com.content}</div>
                             </div>
 
-                            {/* <button className='min-h-[30px] h-[25px]  w-[60px] min-w-[60px] text-[13px] relative top-[10px] bottom-0 rounded-lg border-2 border-gray-500 hover:bg-gray-200 '>delete</button> */}
                         </div>
                     ))}
                 </div>
