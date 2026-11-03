@@ -77,16 +77,16 @@ function Post({id,auther,like,comment,description,image,createdAt}) {
         <div className='flex justify-between '>
             <div className='flex justify-center items-start gap-[10px]'
              onClick={()=>handleGetProfile(auther.userName)}>
-                <div className='w-[70px] h-[70px] rounded-full overflow-hidden flex items-center justify-center cursor-pointer'>
+                <div className='w-[50px] h-[50px] rounded-full overflow-hidden flex items-center justify-center cursor-pointer'>
                     <img src={auther.profileImg || dp} alt="" className='h-full' />
                 </div>
                 <div>
-                    <div className='text-[22px] font-semibold'>{`${auther.firstName} ${auther.lastName}`}</div>
-                    <div className='text-[16px]'>{auther.headline}</div>
-                    <div className='text-[16px]'>{moment(createdAt).fromNow()}</div>
+                    <div className='text-[18px] font-semibold'>{`${auther.firstName} ${auther.lastName}`}</div>
+                    <div className='text-[12px]'>{auther.headline}</div>
+                    <div className='text-[12px]'>{moment(createdAt).fromNow()}</div>
                 </div>
             </div>
-            <div >
+            <div className='pt-[5px]'>
                 {userData._id!=auther._id && 
                 <ConnectionButton userId={auther._id} />
                 }
