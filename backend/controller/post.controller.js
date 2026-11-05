@@ -41,6 +41,33 @@ export const getPost = async (req,res)=>{
     }
 }
 
+export const deletePost = async (req,res)=>{
+    try {
+        let {postId} = req.params
+        let userId = req.userId
+        let post = await Post.findOneAndDelete({
+            _id : postId,
+            auther : userId
+        })
+
+        if(!post){
+            return res.status(404).json({
+                message:"Post not found..."
+            })
+        }
+
+        return res.status(200).json({
+            message :"Post successfully deleted..."
+        })
+        
+    } catch (error) {
+        return res.status(500).json({
+            message: "Error deleting post",
+            error: error.message
+        });
+    }
+}
+
 export const like = async(req,res)=>{
     try {
         let postId = req.params.id

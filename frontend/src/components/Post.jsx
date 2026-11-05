@@ -45,6 +45,26 @@ function Post({id,auther,like,comment,description,image,createdAt}) {
        }
     }
 
+    const handleDeletePost = async () => {
+    const confirmDelete = window.confirm("Are you sure you want to delete this post?");
+
+    if (!confirmDelete) return;
+
+    try {
+        let result = await axios.delete(
+            serverUrl + `/api/post/deletepost/${id}`,
+            { withCredentials: true }
+        );
+
+        if (result.status === 200) {
+            getPost();
+        }
+
+    } catch (error) {
+        console.log("Delete Post Error:", error.response?.data);
+    }
+};
+
     useEffect(()=>{
         socket.on("likeUpdated",({postId,likes})=>{
             if(postId==id){
@@ -140,9 +160,14 @@ function Post({id,auther,like,comment,description,image,createdAt}) {
                     </div>
                 </div>
                 
-                {/* <div>
-                    <button className='flex justify-center items-center  rounded-full text-[12px] min-w-[80px] border-2 border-gray-500 hover:bg-gray-200 cursor-pointer' >Delete post</button>
-                </div> */}
+                 {userData?._id === auther?._id && (
+                    <div>
+                        <button 
+                         onClick={handleDeletePost}
+                        className='flex justify-center items-center  rounded-full text-[12px] min-w-[80px] border-2 border-gray-500 hover:bg-gray-200 cursor-pointer' >Delete post</button>
+                    </div>
+                 )}
+                
             </div>
 
             {showComment && 
