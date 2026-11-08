@@ -75,7 +75,7 @@ function Home() {
     <div className='w-full min-h-[100vh] bg-[#f0efe7] pt-[100px] flex items-center lg:items-start justify-center lg:justify-center gap-[20px] px-[20px] flex-col lg:flex-row relative pb-[50px]'>
       {edit && <EditProfile />}
       <Nav />
-      <div className='w-full lg:w-[25%] min-h-[200px] bg-[white] shadow-lg rounded-lg p-[10px] fixed left-0'>
+      <div className='w-full lg:w-[25%] min-h-[200px] bg-[white] shadow-lg hidden lg:flex fixed left-0 flex-col '>
         
         <div className='w-[100%] h-[100px] bg-gray-400 rounded overflow-hidden flex items-center justify-center relative cursor-pointer'
           onClick={()=>{setEdit(true)}}>
