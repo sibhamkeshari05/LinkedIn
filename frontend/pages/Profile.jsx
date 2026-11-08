@@ -25,7 +25,7 @@ function Profile() {
 
 
   return (
-    <div className="w-full min-h-[100vh] bg-[#f0efe7] flex flex-col items-center pt-[100px] pb-[40px]">
+    <div className="w-full min-h-[100vh] bg-[#f0efe7] flex flex-col items-center pt-[75px] pb-[40px]">
         <Nav/>
         { edit && 
          <EditProfile/>
@@ -40,12 +40,12 @@ function Profile() {
                     <FiCamera className=' absolute right-[20px] top-[20px] w-[25px] h-[25px] text-white cursor-pointer'/>
                 </div>
                 
-                <div className='w-[100px] h-[100px] rounded-full overflow-hidden items-center justify-center absolute top-[135px] left-[90px]'
+                <div className='w-[100px] h-[100px] rounded-full overflow-hidden items-center justify-center absolute top-[135px] left-[70px]'
                     onClick={()=>{setEdit(true)}}>
                     <img src={profileData.profileImg || dp} alt="" className='h-full' />
                 </div>
                 
-                <div className='w-[20px] h-[20px] bg-[#17c1ff] absolute top-[205px] left-[167px] rounded-full flex justify-center items-center cursor-pointer'>
+                <div className='w-[20px] h-[20px] bg-[#17c1ff] absolute top-[205px] left-[147px] rounded-full flex justify-center items-center cursor-pointer'>
                     <FiPlus className='text-white'onClick={()=>{setEdit(true)}}/>
                 </div>
                 
